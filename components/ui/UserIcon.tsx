@@ -12,6 +12,8 @@ export interface UserIconHandle {
 
 interface UserIconProps extends HTMLMotionProps<"div"> {
 	size?: number;
+	onMouseEnter?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+	onMouseLeave?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
 const UserIcon = forwardRef<UserIconHandle, UserIconProps>(
@@ -29,18 +31,18 @@ const UserIcon = forwardRef<UserIconHandle, UserIconProps>(
 		});
 
 		const handleEnter = useCallback(
-			(e?: React.MouseEvent<HTMLDivElement>) => {
+			(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 				if (reduced) return;
 				if (!isControlled.current) controls.start("animate");
-				else onMouseEnter?.(e as any);
+				else onMouseEnter?.(e);
 			},
 			[controls, onMouseEnter, reduced],
 		);
 
 		const handleLeave = useCallback(
-			(e?: React.MouseEvent<HTMLDivElement>) => {
+			(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 				if (!isControlled.current) controls.start("normal");
-				else onMouseLeave?.(e as any);
+				else onMouseLeave?.(e);
 			},
 			[controls, onMouseLeave],
 		);

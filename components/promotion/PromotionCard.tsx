@@ -1,7 +1,6 @@
 import { PromotionProps } from "@/utils/type"
 import { currentUser } from "@clerk/nextjs/server"
 import Image from "next/image"
-import DeleteToggleButton from "../product/DeleteToggleButton"
 import DeletePromotionButton from "./DeleteToggleButton"
 
 const PromotionCard = async ({ promotions }: { promotions: PromotionProps }) => {
