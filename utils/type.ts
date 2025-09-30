@@ -20,3 +20,7 @@ export type PromotionProps = {
   image: string;
   createdAt: Date;
 }
+
+export type ProductImageProps ={
+  image:string;
+}

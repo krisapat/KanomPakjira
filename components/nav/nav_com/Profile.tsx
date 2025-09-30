@@ -31,7 +31,7 @@ const Profile = ({ isAdmin }: ProfileProps) => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild className="cursor-pointer">
-                <Button variant="outline" className="p-2">
+                <Button variant="outline" className="p-0 overflow-hidden">
                     <UserProfile />
                 </Button>
             </DropdownMenuTrigger>

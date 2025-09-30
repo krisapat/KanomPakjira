@@ -35,8 +35,8 @@ export default function AllSearch({ search, category, categories }: Props) {
 
   return (
     <div
-      className={`flex w-full max-w-2xl space-x-2 items-center justify-center
-                  bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-md py-2 px-4 rounded-md allborder sticky top-4 z-50
+      className={`flex w-full max-w-2xl space-x-1 items-center justify-center
+                  bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-md p-1 rounded-md allborder z-50
                   transition-transform duration-300 ${translate}`}
     >
       <Search />

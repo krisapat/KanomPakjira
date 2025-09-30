@@ -6,7 +6,8 @@ import { Badge } from "@/components/ui/badge"
 import { ProductProps } from "@/utils/type"
 import FavoriteToggleButton from "@/components/product/FavoriteToggleButton"
 import { Button } from "@/components/ui/button"
-import { Facebook, MessageCircle } from "lucide-react"
+import { SiLine } from "react-icons/si"
+import { FaFacebookF } from "react-icons/fa"
 
 export default async function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params
@@ -33,6 +34,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
                     {/* Detail Section */}
                     <CardContent className="flex flex-col p-6 space-y-6">
 
+                        {/* Header Section */}
                         <CardHeader className="p-0 mb-6 flex justify-between items-start">
                             <CardTitle className="text-3xl font-bold">
                                 {name}
@@ -40,15 +42,32 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
                             <FavoriteToggleButton productId={id} />
                         </CardHeader>
 
+                        {/* Category Badge */}
                         <div className="flex flex-wrap items-center gap-2 mb-4">
                             <Badge className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary border-none">
                                 {category}
                             </Badge>
                         </div>
 
+                        {/* 🔥 Contact Buttons moved up */}
+                        <div className="flex flex-col lg:flex-row gap-4">
+                            <Button asChild className="flex-1 bg-green-500 hover:bg-green-600 text-white rounded-md py-4 md:py-6 text-lg font-semibold shadow-md hover:shadow-lg transition">
+                                <a href="https://line.me/ti/p/~0819949699" target="_blank" rel="noopener noreferrer">
+                                    <SiLine className="w-6 h-6 mr-2" /> สั่งซื้อทาง Line
+                                </a>
+                            </Button>
+                            <Button asChild className="flex-1 bg-blue-600 hover:bg-blue-700 text-white rounded-md py-4 md:py-6 text-lg font-semibold shadow-md hover:shadow-lg transition">
+                                <a href="https://www.facebook.com/kanompakjira4289" target="_blank" rel="noopener noreferrer">
+                                    <FaFacebookF className="w-6 h-6 mr-2" /> สั่งซื้อทาง Facebook
+                                </a>
+                            </Button>
+                        </div>
+
+                        {/* Description */}
                         <p className="text-gray-600">
                             {description}
                         </p>
+
                         {/* Price Info Section */}
                         <div className="space-y-4 pt-4 border-t">
                             <div className="grid grid-cols-2 gap-4">
@@ -72,21 +91,8 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
                                 </div>
                             </div>
                         </div>
-
-                        {/* Contact Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t">
-                            <Button asChild className="flex-1 bg-green-500 hover:bg-green-600 text-white rounded-xl">
-                                <a href="https://line.me/ti/p/your-line-id" target="_blank" rel="noopener noreferrer">
-                                    <MessageCircle className="w-5 h-5 mr-2" /> ติดต่อทาง Line
-                                </a>
-                            </Button>
-                            <Button asChild className="flex-1 bg-blue-600 hover:bg-blue-700 text-white rounded-xl">
-                                <a href="https://facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer">
-                                    <Facebook className="w-5 h-5 mr-2" /> ติดต่อทาง Facebook
-                                </a>
-                            </Button>
-                        </div>
                     </CardContent>
+
                 </div>
             </Card>
         </section>

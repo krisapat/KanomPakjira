@@ -36,7 +36,7 @@ const Navbar = ({ isAdmin }: NavbarProps) => {
       <div className="w-full flex items-center justify-between px-4 md:px-20 h-15 kanitFont">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Link href="/" className="font-extrabold text-3xl text-primary kanitFont">
+          <Link href="/" className="font-extrabold text-xl md:text-3xl text-primary kanitFont">
             ขนมภัคจิรา
           </Link>
         </div>

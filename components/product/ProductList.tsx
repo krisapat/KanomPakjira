@@ -1,14 +1,19 @@
 import { ProductProps } from "@/utils/type"
 import ProductCard from "./ProductCard"
+import FadeUpWhenVisible from "../animation/FadeUpWhenVisible"
 
 const ProductList = ({ products }: { products: ProductProps[] }) => {
     return (
         <section className="
-        flex flex-wrap gap-4 justify-center
+        grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2 md:gap-4
         ">
             {
                 products.map((products) => {
-                    return <ProductCard key={products.id} products={products} />
+                    return (
+                        <FadeUpWhenVisible key={products.id}>
+                            <ProductCard products={products} />
+                        </FadeUpWhenVisible>
+                    )
                 })
             }
         </section>

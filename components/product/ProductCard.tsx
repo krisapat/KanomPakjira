@@ -11,10 +11,11 @@ const ProductCard = async ({ products }: { products: ProductProps }) => {
     const isAdmin = (user?.privateMetadata as { admin?: boolean })?.admin ?? false
     console.log(image)
     return (
-        <article className="group relative w-45 rounded-md overflow-hidden border bg-background dark:bg-background shadow-md hover:shadow-xl transition-shadow duration-300">
+        <article className="group relative w-33 sm:w-45 rounded-md overflow-hidden border bg-background dark:bg-background shadow-md 
+        hover:shadow-xl transition-shadow duration-300 allborder">
             <Link href={`/product/${id}`}>
                 {/* Image Section */}
-                <div className="relative h-45 w-full overflow-hidden">
+                <div className="relative h-33 sm:h-45 w-full overflow-hidden">
                     <Image
                         src={image}
                         alt={name}
@@ -28,13 +29,13 @@ const ProductCard = async ({ products }: { products: ProductProps }) => {
 
                 {/* Content Section */}
                 <div className="p-4 flex flex-col space-y-2">
-                    <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 truncate">
+                    <h2 className="text-md md:text-lg font-semibold text-gray-900 dark:text-gray-100 truncate">
                         {name}
                     </h2>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">{category}</p>
+                    <p className="text-xs md:text-sm text-gray-500 dark:text-gray-300">{category}</p>
 
                     <div className="flex items-center justify-between">
-                        <span className="text-xl font-bold text-primary">
+                        <span className="text-md md:text-xl font-bold text-primary">
                             ราคา {retail} บาท
                         </span>
                     </div>

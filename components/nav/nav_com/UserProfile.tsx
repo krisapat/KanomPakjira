@@ -3,7 +3,7 @@ import { UserIcon } from "@/components/ui/UserIcon";
 import { useUser } from "@clerk/nextjs";
 
 const UserProfile = () => {
-  const { user, isSignedIn } = useUser();
+  const { user, isSignedIn } = useUser()
   
   return (
     <div className="flex items-center">
@@ -13,7 +13,6 @@ const UserProfile = () => {
           alt={user.fullName || "User profile picture"}
           width={32}
           height={32}
-          className="rounded-full"
         />
       ) : (
         <UserIcon className="w-8 h-8" />

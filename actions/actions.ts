@@ -78,11 +78,11 @@ export const createCategoriesAction = async (
   }
 }
 
-export const fetchCategoriest= cache(async () => {
+export const fetchCategoriest = cache(async () => {
   const Asset = await db.categories.findMany({
-    select:{
-      id:true,
-      name:true,
+    select: {
+      id: true,
+      name: true,
     },
     orderBy: { createdAt: "asc" },
   })
@@ -149,7 +149,16 @@ export const fetchProduct = cache(async ({ search = "", category }: { search?: s
         { category: { contains: search, mode: "insensitive" } },
       ]
     },
-    orderBy: { createdAt: "asc" },
+    orderBy: { name: "asc" },
+  })
+  return product
+})
+export const fetchProductImage = cache(async () => {
+  const product = await db.product.findMany({
+    select: {
+      image: true
+    },
+    orderBy: { name: "asc" },
   })
   return product
 })
@@ -188,7 +197,7 @@ export const toggleFavoriteAction = async (
     return renderError(error)
   }
 }
-export const deleteProductAction = async ( 
+export const deleteProductAction = async (
   prevState: FormState,
   formData: FormData
 ): Promise<FormState> => {
@@ -245,12 +254,12 @@ export const fetchFavorites = async () => {
           description: true,
           image: true,
           category: true,
-          retail:true,
-          wholesale:true,
-          perPieceCrate:true
+          retail: true,
+          wholesale: true,
+          perPieceCrate: true
         }
       }
-    }
+    },
   })
   return favorites.map((favorite) => favorite.products)
 }
@@ -345,6 +354,8 @@ export const fetchFavoritesDashboard = async () => {
     select: {
       id: true,
       name: true,
+      image: true,
+      retail: true
     },
   })
   return products.map((product) => {
