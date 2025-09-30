@@ -1,6 +1,7 @@
 import { fetchFavoritesDashboard, fetchProductImage } from "@/actions/actions";
 import AnimatedText from "@/components/animation/AnimatedText"
 import FadeUpWhenVisible from "@/components/animation/FadeUpWhenVisible";
+import LinkPro from "@/components/home/LinkPro";
 import Reorder from "@/components/home/Reorder";
 import Swiper_pro from "@/components/home/Swiper_pro";
 import { Button } from "@/components/ui/button"
@@ -34,27 +35,19 @@ const Home = async () => {
           className="text-md sm:text-lg md::text-xl text-center font-semiboldbold"
         />
         <div className="flex gap-2">
-          <Button asChild className="text-white shadow-md transition-all
-                                    hover:scale-105 hover:shadow-lg duration-300">
-            <Link href={"/productList"}>
-              ดูสินค้าทั้งหมด
-            </Link>
-          </Button>
-          <Button asChild className="text-white shadow-md transition-all
-                                    hover:scale-105 hover:shadow-lg duration-300">
-            <Link href={"/promotion"}>
-              ดูโปรโมชั่น
-            </Link>
-          </Button>
+          <LinkPro />
         </div>
         <Reorder images={products.map((p) => p.image)} />
       </section>
-      <section>
+      <section className="flex flex-col justify-center items-center">
         <AnimatedText
-          text="ขนมยอดนิยม"
+          text="สินค้ายอดนิยม"
           className="text-5xl md:text-6xl text-center text-primary font-bold -mb-0"
         />
         <Swiper_pro products={mostProducts} />
+        <div className="flex gap-2 mt-5">
+          <LinkPro />
+        </div>
       </section>
       <section id="contact" className="w-full min-h-screen flex flex-col items-center justify-center px-6 py-12 relative overflow-hidden">
         <FadeUpWhenVisible>
