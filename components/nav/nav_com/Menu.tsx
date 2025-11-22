@@ -31,7 +31,7 @@ const Menu = ({ isAdmin }: ProfileProps) => {
             </DropdownMenuTrigger>
 
             <DropdownMenuContent >
-                <DropdownMenuLabel>My Profile</DropdownMenuLabel>
+                <DropdownMenuLabel>Menu</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {menuLink
                     .filter((item) => !item.requireAdmin || isAdmin)

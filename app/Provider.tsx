@@ -1,7 +1,6 @@
-import SmoothScrollWrapper from "@/components/animation/SmoothScrollWrapper"
 import { Darkmode } from "@/components/darkmode/darkmode"
 import { ThemeProvider } from "@/components/darkmode/theme-provider"
-import NavbarWrapper from "@/components/nav/NavbarWrapper"
+import Navbar from "@/components/nav/Navbar"
 import { Toaster } from "@/components/ui/sonner"
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
@@ -13,10 +12,8 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
                 enableSystem
                 disableTransitionOnChange
             >
-                <NavbarWrapper />
-                <SmoothScrollWrapper>
+                <Navbar />
                     {children}
-                </SmoothScrollWrapper>
                 <Toaster toastOptions={{
                     className: "kanitFont",
                 }} />

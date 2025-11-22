@@ -7,8 +7,12 @@ import ImageInput from "@/components/form/ImageInput"
 import SubmitButtons from "@/components/form/SubmitButtons"
 import TextAreaInput from "@/components/form/TextAreaInput"
 import { currentUser } from "@clerk/nextjs/server"
+import { Metadata } from "next"
 import { redirect } from "next/navigation"
-
+export const metadata: Metadata = {
+  title: "ขนมภัคจิรา | สร้างรายการสินค้า",
+  description: "ขนมภัคจิรา ศูนย์รวมขนมทานเล่นและผลไม้แปรรูปจากทั่วไทยคัดสรรคุณภาพจากโรงงานโดยตรงในราคาส่งสุดคุ้มมีบริการขายสินค้าราคาส่งสำหรับร้านค้าและผู้ประกอบการถูกจริงส่งไวพร้อมจัดส่งทั่วประเทศ",
+};
 const CreateProduct = async () => {
   const user = await currentUser()
   if (!user?.privateMetadata?.admin) redirect("/")

@@ -6,10 +6,13 @@ import Reorder from "@/components/home/Reorder";
 import Swiper_pro from "@/components/home/Swiper_pro";
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-import Link from "next/link"
+import { Metadata } from "next";
 import { FaFacebookF } from "react-icons/fa";
 import { SiLine } from "react-icons/si";
+export const metadata: Metadata = {
+  title: "ขนมภัคจิรา | หน้าหลัก",
+  description: "ขนมภัคจิรา ศูนย์รวมขนมทานเล่นและผลไม้แปรรูปจากทั่วไทยคัดสรรคุณภาพจากโรงงานโดยตรงในราคาส่งสุดคุ้มมีบริการขายสินค้าราคาส่งสำหรับร้านค้าและผู้ประกอบการถูกจริงส่งไวพร้อมจัดส่งทั่วประเทศ",
+};
 function shuffle<T>(array: T[]): T[] {
   return array.sort(() => Math.random() - 0.5)
 }
@@ -19,31 +22,29 @@ const Home = async () => {
   const products = shuffle(allProducts).slice(0, 4)
   return (
     <section className="relative overflow-hidden">
-
       {/* hero section */}
-      <section className="relative w-full  min-h-screen flex flex-col justify-center items-center -mt-15 p-4 space-y-4">
-        <div className=" inset-0 pointer-events-none -z-10">
-          <div className="overflow-x-hidden w-80 h-80 absolute top-[-10rem] left-[-10rem] bg-primary rounded-full blur-3xl opacity-30" />
-          <div className="overflow-x-hidden w-80 h-80 absolute bottom-[-10rem] right-[-10rem] bg-primary rounded-full blur-3xl opacity-30" />
-        </div>
-        <AnimatedText
-          text="ขนมภัคจิรา"
-          className="text-5xl md:text-6xl text-center text-primary font-bold -mb-0"
-        />
-        <AnimatedText
-          text="ศูนย์รวมขนมทานเล่นและผลไม้แปรรูปจากทั่วไทย คัดสรรคุณภาพจากโรงงานโดยตรง ในราคาส่งสุดคุ้ม มีบริการขายสินค้าราคาส่งสำหรับร้านค้าและผู้ประกอบการ ถูกจริง ส่งไว พร้อมจัดส่งทั่วประเทศ"
-          className="text-md sm:text-lg md::text-xl text-center font-semiboldbold"
-        />
-        <div className="flex gap-2">
-          <LinkPro />
-        </div>
-        <Reorder images={products.map((p) => p.image)} />
-      </section>
+      <FadeUpWhenVisible>
+        <section className="relative w-full  min-h-screen flex flex-col justify-center items-center -mt-15 p-4 space-y-4">
+          <div className=" inset-0 pointer-events-none -z-10">
+            <div className="overflow-x-hidden w-80 h-80 absolute top-[-10rem] left-[-10rem] bg-linear-to-r from-[#FB2C36] to-[#FB6A36] rounded-full blur-3xl opacity-30" />
+            <div className="overflow-x-hidden w-80 h-80 absolute bottom-[-10rem] right-[-10rem] bg-linear-to-r from-[#FB2C36] to-[#FB6A36] rounded-full blur-3xl opacity-30" />
+          </div>
+          <h1 className="text-5xl md:text-6xl text-center bg-linear-to-r from-[#FB2C36] to-[#FB6A36] bg-clip-text text-transparent font-bold ">
+            ขนมภัคจิรา
+          </h1>
+          <p className="text-lg md:text-lg text-center text-gray-700 dark:text-gray-300 w-full max-w-2xl">
+            ศูนย์รวมขนมทานเล่นและผลไม้แปรรูปจากทั่วไทย คัดสรรคุณภาพจากโรงงานโดยตรง ในราคาส่งสุดคุ้ม มีบริการขายสินค้าราคาส่งสำหรับร้านค้าและผู้ประกอบการ ถูกจริง ส่งไว พร้อมจัดส่งทั่วประเทศ
+          </p>
+          <div className="flex gap-2">
+            <LinkPro />
+          </div>
+          <Reorder images={products.map((p) => p.image)} />
+        </section>
+      </FadeUpWhenVisible>
       <section className="flex flex-col justify-center items-center">
-        <AnimatedText
-          text="สินค้ายอดนิยม"
-          className="text-5xl md:text-6xl text-center text-primary font-bold -mb-0"
-        />
+        <h2 className="text-5xl md:text-6xl text-center bg-linear-to-r from-[#FB2C36] to-[#FB6A36] bg-clip-text text-transparent font-bold -mb-0">
+          สินค้ายอดนิยม
+        </h2>
         <Swiper_pro products={mostProducts} />
         <div className="flex gap-2 mt-5">
           <LinkPro />
@@ -52,12 +53,11 @@ const Home = async () => {
       <section id="contact" className="w-full min-h-screen flex flex-col items-center justify-center px-6 py-12 relative overflow-hidden">
         <FadeUpWhenVisible>
           <div className="max-w-6xl mx-auto relative border">
-            <div className="relative z-10 bg-background dark:bg-background rounded-md p-10 shadow-md">
-              <AnimatedText
-                text="สั่งเลยที่"
-                className="text-xl md:text-3xl text-center font-extrabold mb-10"
-              />
-
+            <div className="relative z-10 bg-white
+        dark:bg-gray-800 rounded-md p-10 shadow-md">
+              <h2 className="text-xl md:text-3xl text-center font-extrabold mb-10">
+                สั่งเลยที่
+              </h2>
               <div className="flex flex-col md:flex-row gap-6 justify-center">
                 {/* Facebook Contact */}
                 <Card className="w-full max-w-[320px] shadow-lg hover:shadow-xl transition-transform hover:scale-105">
@@ -113,12 +113,9 @@ const Home = async () => {
                   </CardContent>
                 </Card>
               </div>
-
-
-              <AnimatedText
-                text="ขนมจัดส่งทุกวัน"
-                className="text-xl md:text-2xl text-center font-medium mt-10"
-              />
+              <h2 className="text-xl md:text-2xl text-center font-medium mt-10">
+                ขนมจัดส่งทุกวัน
+              </h2>
             </div>
 
             {/* Decorative elements */}

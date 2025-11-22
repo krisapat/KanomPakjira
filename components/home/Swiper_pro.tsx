@@ -90,8 +90,9 @@ export default function Swiper_pro({ products }: { products: Product[] }) {
             >
                 {products.map((item) => (
                     <SwiperSlide key={item.id}>
-                        <div className="max-w-[320px] w-[90%] rounded-md bg-background shadow-lg 
-                        flex flex-col justify-between items-center my-8 mx-auto p-4 allborder
+                        <div className="max-w-[320px] w-[90%] rounded-md bg-white/70 
+        dark:bg-gray-800/60 shadow-lg 
+                        flex flex-col justify-between items-center my-8 mx-auto p-4 
                         transform transition-transform duration-300 hover:scale-103">
                             {/* ชื่อสินค้า */}
                             <h3 className="text-2xl font-semibold mb-2 text-center">

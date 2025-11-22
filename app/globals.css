@@ -52,7 +52,7 @@
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(63.78% 0.23729 25.422);
+  --primary: oklab(63.78% 0.21431 0.10186);
   --primary-foreground: oklch(39.775% 0.16322 29.223);
   --secondary: oklch(0.967 0.001 286.375);
   --secondary-foreground: oklch(0.21 0.006 285.885);
@@ -145,7 +145,7 @@
 }
 
 .allborder{
-  @apply border-2 border-gray-400
+  @apply border-1 border-white/70 dark:border-gray-800/60
 }
 
 

@@ -2,8 +2,12 @@ import { fetchPromotion } from "@/actions/actions";
 import LoadingPromotionList from "@/components/promotion/LoadingPromotion";
 import PromotionList from "@/components/promotion/PromotionList";
 import { PromotionProps } from "@/utils/type";
+import { Metadata } from "next";
 import { Suspense } from "react";
-
+export const metadata: Metadata = {
+  title: "ขนมภัคจิรา | โปรโมชั่น",
+  description: "ขนมภัคจิรา รวมโปรโมชั่นศูนย์รวมขนมทานเล่นและผลไม้แปรรูปจากทั่วไทยคัดสรรคุณภาพจากโรงงานโดยตรงในราคาส่งสุดคุ้มมีบริการขายสินค้าราคาส่งสำหรับร้านค้าและผู้ประกอบการถูกจริงส่งไวพร้อมจัดส่งทั่วประเทศ",
+};
 const promotionPage = async () => {
   const promotion: PromotionProps[] = await fetchPromotion();
   return (

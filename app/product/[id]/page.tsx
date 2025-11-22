@@ -8,6 +8,24 @@ import FavoriteToggleButton from "@/components/product/FavoriteToggleButton"
 import { Button } from "@/components/ui/button"
 import { SiLine } from "react-icons/si"
 import { FaFacebookF } from "react-icons/fa"
+import { Metadata } from "next"
+export async function generateMetadata(
+    { params }: { params: { id: string } }
+): Promise<Metadata> {
+    const project = await fetchProductDetail({ id: params.id })
+    const { name } = project as ProductProps
+    if (!project) {
+        return {
+            title: "ไม่พบสินค้า",
+            description: "This project does not exist.",
+        }
+    }
+
+    return {
+        title: `ขนมภัคจิรา | ${name}`,
+        description: "ขนมภัคจิรา ศูนย์รวมขนมทานเล่นและผลไม้แปรรูปจากทั่วไทยคัดสรรคุณภาพจากโรงงานโดยตรงในราคาส่งสุดคุ้มมีบริการขายสินค้าราคาส่งสำหรับร้านค้าและผู้ประกอบการถูกจริงส่งไวพร้อมจัดส่งทั่วประเทศ",
+    }
+}
 
 export default async function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params

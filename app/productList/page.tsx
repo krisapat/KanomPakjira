@@ -3,8 +3,12 @@ import AllSearchWrapper from "@/components/product/AllSearchWrapper";
 import LoadingProductList from "@/components/product/LoaddingProduct";
 import ProductList from "@/components/product/ProductList";
 import { ProductProps } from "@/utils/type";
+import { Metadata } from "next";
 import { Suspense } from "react";
-
+export const metadata: Metadata = {
+  title: "ขนมภัคจิรา | สินค้าทั้งหมด",
+  description: "ขนมภัคจิรา รวมรายการสินค้ารวมโปรโมชั่นศูนย์รวมขนมทานเล่นและผลไม้แปรรูปจากทั่วไทยคัดสรรคุณภาพจากโรงงานโดยตรงในราคาส่งสุดคุ้มมีบริการขายสินค้าราคาส่งสำหรับร้านค้าและผู้ประกอบการถูกจริงส่งไวพร้อมจัดส่งทั่วประเทศ",
+};
 const productList = async ({ searchParams }: { searchParams: Promise<{ search?: string, category?: string }> }) => {
   const { search, category } = await searchParams
   const products: ProductProps[] = await fetchProduct({ search, category });
