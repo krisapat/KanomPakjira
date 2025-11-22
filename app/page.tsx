@@ -1,5 +1,4 @@
 import { fetchFavoritesDashboard, fetchProductImage } from "@/actions/actions";
-import AnimatedText from "@/components/animation/AnimatedText"
 import FadeUpWhenVisible from "@/components/animation/FadeUpWhenVisible";
 import LinkPro from "@/components/home/LinkPro";
 import Reorder from "@/components/home/Reorder";

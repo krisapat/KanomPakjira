@@ -9,10 +9,9 @@ import { Button } from "@/components/ui/button"
 import { SiLine } from "react-icons/si"
 import { FaFacebookF } from "react-icons/fa"
 import { Metadata } from "next"
-export async function generateMetadata(
-    { params }: { params: { id: string } }
-): Promise<Metadata> {
-    const project = await fetchProductDetail({ id: params.id })
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params
+    const project = await fetchProductDetail({ id })
     const { name } = project as ProductProps
     if (!project) {
         return {
