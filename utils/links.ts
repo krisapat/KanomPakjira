@@ -11,6 +11,6 @@ export const profileLinks: NavLink[] = [
 
 export const menuLink: NavLink[] = [
   { path: "/", name: "หน้าหลัก" },
-  { path: "/productList", name: "สินค้าทั้งหมด" },
+  { path: "/product", name: "สินค้าทั้งหมด" },
   { path: "/promotion", name: "โปรโมชั่น" },
 ]

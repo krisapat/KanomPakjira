@@ -6,7 +6,7 @@ const LinkPro = () => {
         <>
             <Button asChild className="text-white shadow-md transition-all
                                         hover:scale-105 hover:shadow-lg duration-300">
-                <Link href={"/productList"}>
+                <Link href={"/product"}>
                     ดูสินค้าทั้งหมด
                 </Link>
             </Button>

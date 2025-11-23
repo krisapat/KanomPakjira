@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { SiLine } from "react-icons/si"
 import { FaFacebookF } from "react-icons/fa"
 import { Metadata } from "next"
+import ProductBreadcrumb from "@/components/product/ProductBreadcrumb"
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params
     const project = await fetchProductDetail({ id })
@@ -33,7 +34,8 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
     const { category, image, name, description, retail, wholesale, perPieceCrate } = product as ProductProps
 
     return (
-        <section className="p-4">
+        <section className="p-4 space-y-4">
+            <ProductBreadcrumb name={name} />
             <Card className="max-w-md md:max-w-5xl w-full mx-auto rounded-md shadow-lg border overflow-hidden p-0">
                 <div className="grid md:grid-cols-2">
                     {/* Image Section */}
