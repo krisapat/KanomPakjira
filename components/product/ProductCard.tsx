@@ -11,7 +11,7 @@ const ProductCard = async ({ products }: { products: ProductProps }) => {
     const isAdmin = (user?.privateMetadata as { admin?: boolean })?.admin ?? false
     console.log(image)
     return (
-        <article className="group relative w-33 sm:w-45 rounded-md overflow-hidden border bg-white/70 
+        <article className="group relative w-full rounded-md overflow-hidden border bg-white/70 
         dark:bg-gray-800/60 shadow-md 
         hover:shadow-xl transition-shadow duration-300">
             <Link href={`/product/${id}`}>

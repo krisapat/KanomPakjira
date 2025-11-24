@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 const Create = async () => {
   const user = await currentUser()
-  
+  if (user?.privateMetadata.hasProfile) redirect("/")
   return (
     <section className="w-full h-[80vh] flex justify-center items-center">
       <div className="border p-4 w-[95vw] max-w-2xl rounded-md shadow-md">
